@@ -37,7 +37,6 @@ export default function transformations(state, value) {
       };
     case FLOAT:
       if (next && next.includes('.')) return state;
-      if (total && !operation) return state;
 
       return next ? {
         ...state,
@@ -45,6 +44,8 @@ export default function transformations(state, value) {
       } : {
         ...state,
         next: '0.',
+        operation: null,
+        total: null,
       };
     case EQUAL:
       return next && operation ? {

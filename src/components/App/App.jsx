@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
+import isNumber from '../../utils/isNumber';
 import ButtonList from '../ButtonList/ButtonList';
 import Display from '../Display/Display';
 import css from './App.module.css';
 import calculate from '../../utils/calculate';
+import { FLOAT, EQUAL } from '../../constants/transformationTypes';
+import operationTypes from '../../constants/operationTypes';
 
 // TODO: Add propTypes
 // TODO: Complete css
 
 class App extends Component {
+  validKeys = [FLOAT, EQUAL, ...operationTypes];
+
   state = {
     next: null,
     operation: null,
@@ -27,8 +32,9 @@ class App extends Component {
   };
 
   handleKeyUp = (ev) => {
-    // console.log(ev.charCode, ev.which, ev.key)
-    // this.handleClick(ev.key);
+    if (this.validKeys.includes(ev.key) || isNumber(ev.key)) {
+      this.handleClick(ev.key);
+    }
   };
 
   render() {
@@ -38,12 +44,11 @@ class App extends Component {
       <div
         className={css.container}
       >
-        <Display>
-          {total === null && next === null && '0'}
-          {total && total}
-          {operation && operation}
-          {next && next}
-        </Display>
+        <Display
+          next={next}
+          operation={operation}
+          total={total}
+        />
         <ButtonList handleClick={this.handleClick} />
       </div>
     );
