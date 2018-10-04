@@ -1,4 +1,3 @@
-// TODO: Here will placed all transformation operations from calculator.js
 import operate from './operate';
 import {
   AC,

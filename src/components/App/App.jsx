@@ -3,7 +3,9 @@ import ButtonList from '../ButtonList/ButtonList';
 import Display from '../Display/Display';
 import css from './App.module.css';
 import calculate from '../../utils/calculate';
-// TODO: Rewrite calculate and operate,
+
+// TODO: Add propTypes
+// TODO: Complete css
 
 class App extends Component {
   state = {
