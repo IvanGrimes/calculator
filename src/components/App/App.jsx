@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <div>
         <Display>
-          {!total && !next && '0'}
+          {total === null && next === null && '0'}
           {total && total}
           {operation && operation}
           {next && next}
