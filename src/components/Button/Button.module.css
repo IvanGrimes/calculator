@@ -24,3 +24,7 @@
 .wide {
   width: 100%;
 }
+
+.pressed {
+  box-shadow: inset rgba(0, 0, 0, .2) 6px 6px 12px;
+}

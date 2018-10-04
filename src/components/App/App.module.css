@@ -2,10 +2,6 @@
   width: 350px;
 }
 
-.history {
-
-}
-
 .numbers {
   display: flex;
   flex-wrap: wrap;
