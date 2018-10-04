@@ -23,24 +23,24 @@ export default function transformations(state, value) {
       return total ? {
         next: null,
         operation: null,
-        total: parseFloat(total) / 100,
+        total: (parseFloat(total) / 100).toString(),
       } : {
         next: null,
         operation: null,
-        total: parseFloat(next) / 100,
+        total: (parseFloat(next) / 100).toString(),
       };
     case SQRT:
       return {
         next: null,
         operation: null,
-        total: Math.sqrt(next),
+        total: Math.sqrt(next).toString(),
       };
     case FLOAT:
       if (next && next.includes('.')) return state;
+      if (total && !operation) return state;
 
       return next ? {
         ...state,
-        operation: null,
         next: `${next}.`,
       } : {
         ...state,
