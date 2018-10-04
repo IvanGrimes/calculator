@@ -51,14 +51,14 @@ export default function calculate(state, value) {
       return {
         next: null,
         operation: null,
-        total: parseInt(total, 10) / 100,
+        total: parseFloat(total) / 100,
       };
     }
 
     return {
       next: null,
       operation: null,
-      total: parseInt(next, 10) / 100,
+      total: parseFloat(next) / 100,
     };
   }
 
@@ -97,6 +97,23 @@ export default function calculate(state, value) {
     }
 
     return state;
+  }
+
+  if (value === '+/-') {
+    if (next) {
+      return {
+        ...state,
+        next: -1 * parseFloat(next).toString(),
+        operation: null,
+      };
+    }
+    if (total) {
+      return {
+        ...state,
+        operation: null,
+        total: -1 * parseFloat(total).toString(),
+      };
+    }
   }
 
   if (!next) {

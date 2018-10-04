@@ -1,23 +1,23 @@
 export default function operate(state) {
   const { operation } = state;
-  const next = +state.next;
-  const total = +state.total;
+  const next = parseFloat(state.next);
+  const total = parseFloat(state.total);
 
   if (operation === '+') {
-    return total + next;
+    return (total + next).toString();
   }
 
   if (operation === '-') {
-    return total - next;
+    return (total - next).toString();
   }
 
   if (operation === '*') {
-    return total * next;
+    return (total * next).toString();
   }
 
   if (operation === '/') {
-    return total / next;
+    return (total / next).toString();
   }
 
-  return state;
+  throw new TypeError(`Unknown ${operation} operation`);
 }

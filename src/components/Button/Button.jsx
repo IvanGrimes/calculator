@@ -5,6 +5,7 @@ import css from './Button.module.css';
 class Button extends Component {
   static defaultProps = {
     className: '',
+    oneFourth: false,
     twoThird: false,
     wide: false,
     type: 'button',
@@ -14,6 +15,7 @@ class Button extends Component {
     className: PropTypes.string,
     handleClick: PropTypes.func.isRequired,
     children: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    oneFourth: PropTypes.bool.isRequired,
     twoThird: PropTypes.bool,
     wide: PropTypes.bool,
     type: PropTypes.string,
@@ -45,6 +47,7 @@ class Button extends Component {
     const {
       className,
       children,
+      oneFourth,
       twoThird,
       wide,
       type,
@@ -53,6 +56,7 @@ class Button extends Component {
     const classNames = [
       className,
       css.number,
+      oneFourth ? css.oneFourth : '',
       twoThird ? css.twoThird : '',
       wide ? css.wide : '',
       pressed ? css.pressed : '',

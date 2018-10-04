@@ -16,25 +16,27 @@ class ButtonList extends Component {
           key={(i + 1) * Math.random()}
           handleClick={handleClick}
         >
-          {i}
+          {i.toString()}
         </Button>,
       );
     }
 
     numbers.push(
       <Button
-        key={0}
-        className={css.zero}
         handleClick={handleClick}
-        twoThird
+      >
+        .
+      </Button>,
+      <Button
+        key={0}
+        handleClick={handleClick}
       >
         {0}
       </Button>,
       <Button
-        className={css.float}
         handleClick={handleClick}
       >
-        .
+        =
       </Button>,
     );
 
@@ -43,7 +45,7 @@ class ButtonList extends Component {
 
   renderOperations() {
     const { handleClick } = this.props;
-    const operations = ['+', '-', '*', '/', '='];
+    const operations = ['+', '-', '*', '/',];
 
     return operations.map(item => (
       <Button
@@ -58,11 +60,12 @@ class ButtonList extends Component {
 
   renderCalculations() {
     const { handleClick } = this.props;
-    const calculations = ['AC', '√', '%'];
+    const calculations = ['AC', '√', '%', '+/-'];
 
     return calculations.map(item => (
       <Button
         handleClick={handleClick}
+        oneFourth
       >
         {item}
       </Button>
@@ -72,11 +75,10 @@ class ButtonList extends Component {
   render() {
     return (
       <div className={css.container}>
+        <div className={css.calculations}>
+          {this.renderCalculations()}
+        </div>
         <div className={css.leftSide}>
-          <div className={css.calculations}>
-            {this.renderCalculations()}
-          </div>
-
           <div className={css.numbers}>
             {this.renderNumbers()}
           </div>

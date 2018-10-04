@@ -36,6 +36,7 @@
 }
 
 .calculations {
+  width: 100%;
   composes: numbers;
 }
 
