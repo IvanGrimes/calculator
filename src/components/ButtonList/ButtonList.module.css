@@ -35,7 +35,7 @@
   flex-wrap: wrap;
 }
 
-.calculations {
+.transformations {
   width: 100%;
   composes: numbers;
 }
