@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import css from './ButtonList.module.css';
+import transformationTypes, { FLOAT, EQUAL } from '../../constants/transformationTypes';
+import operationTypes from '../../constants/operationTypes';
 
 class ButtonList extends Component {
   static propTypes = {};
@@ -25,7 +27,7 @@ class ButtonList extends Component {
       <Button
         handleClick={handleClick}
       >
-        .
+        {FLOAT}
       </Button>,
       <Button
         key={0}
@@ -36,7 +38,7 @@ class ButtonList extends Component {
       <Button
         handleClick={handleClick}
       >
-        =
+        {EQUAL}
       </Button>,
     );
 
@@ -45,9 +47,8 @@ class ButtonList extends Component {
 
   renderOperations() {
     const { handleClick } = this.props;
-    const operations = ['+', '-', '*', '/',];
 
-    return operations.map(item => (
+    return operationTypes.map(item => (
       <Button
         className={css.operationsItem}
         handleClick={handleClick}
@@ -58,11 +59,11 @@ class ButtonList extends Component {
     ));
   }
 
-  renderCalculations() {
+  renderTransformations() {
     const { handleClick } = this.props;
-    const calculations = ['AC', '√', '%', '+/-'];
+    const transformations = transformationTypes.filter(type => type !== EQUAL && type !== FLOAT);
 
-    return calculations.map(item => (
+    return transformations.map(item => (
       <Button
         handleClick={handleClick}
         oneFourth
@@ -75,8 +76,8 @@ class ButtonList extends Component {
   render() {
     return (
       <div className={css.container}>
-        <div className={css.calculations}>
-          {this.renderCalculations()}
+        <div className={css.transformations}>
+          {this.renderTransformations()}
         </div>
         <div className={css.leftSide}>
           <div className={css.numbers}>
