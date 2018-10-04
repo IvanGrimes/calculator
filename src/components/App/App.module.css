@@ -1,0 +1,21 @@
+.container {
+  width: 400px;
+}
+
+.history {
+
+}
+
+.numbers {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.number {
+  width: 33.333%;
+}
+
+.numberZero {
+  composes: number;
+  width: 100%;
+}
