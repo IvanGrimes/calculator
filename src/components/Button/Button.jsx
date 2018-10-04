@@ -2,11 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import css from './Button.module.css';
 
-const Button = ({ handleClick, className, children, twoThird }) => {
+const Button = ({
+  handleClick,
+  className,
+  children,
+  twoThird,
+  wide,
+}) => {
   const classNames = [
     className,
     css.number,
     twoThird ? css.twoThird : '',
+    wide ? css.wide : '',
   ];
 
   return (
@@ -21,14 +28,16 @@ const Button = ({ handleClick, className, children, twoThird }) => {
 };
 
 Button.defaultProps = {
-  wide: false,
   className: '',
+  twoThird: false,
+  wide: false,
 };
 
 Button.propTypes = {
   className: PropTypes.string,
   handleClick: PropTypes.func.isRequired,
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  twoThird: PropTypes.bool,
   wide: PropTypes.bool,
 };
 

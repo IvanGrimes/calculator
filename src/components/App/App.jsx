@@ -20,7 +20,7 @@ class App extends Component {
     const { next, total, operation } = this.state;
 
     return (
-      <div>
+      <div className={css.container}>
         <Display>
           {total === null && next === null && '0'}
           {total && total}

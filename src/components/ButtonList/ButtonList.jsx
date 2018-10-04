@@ -24,12 +24,16 @@ class ButtonList extends Component {
     numbers.push(
       <Button
         key={0}
+        className={css.zero}
         handleClick={handleClick}
         twoThird
       >
         {0}
       </Button>,
-      <Button handleClick={handleClick}>
+      <Button
+        className={css.float}
+        handleClick={handleClick}
+      >
         .
       </Button>,
     );
@@ -59,7 +63,6 @@ class ButtonList extends Component {
     return calculations.map(item => (
       <Button
         handleClick={handleClick}
-        wide
       >
         {item}
       </Button>
